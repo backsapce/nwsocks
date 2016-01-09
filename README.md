@@ -21,11 +21,7 @@ the gui version based on NW.js.
 
 just download the version for your operating system
 
-windows
-
-mac osx
-
-linux
+[download](https://github.com/backsapce/nwsocks/releases)
 
 # config.json sepcs
 
