@@ -1,0 +1,6 @@
+{
+  "host": "0.0.0.0",
+  "port": "1080",
+  "local_port": "1080",
+  "passwd": "helloworld"
+}

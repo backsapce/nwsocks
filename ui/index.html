@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>shadowsocks</title>
+  <script src="./js/jquery.js" charset="utf-8"></script>
+  <script src="./js/bootstrap.js" charset="utf-8"></script>
+  <script src="./js/index.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="./css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="./css/main.css" media="screen" title="no title" charset="utf-8">
+</head>
+
+<body>
+  <div class="container">
+      <div class="container" style="margin-top:10px;">
+          <button type="button" name="button" class="btn btn-sm btn-info right">log</button>
+      </div>
+      <h4>shadowsocks nw</h4>
+      <form class="form-horizontal" action="index.html" method="post">
+        <div class="form-group">
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputEmail3" placeholder="IP" name="ip">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputEmail3" placeholder="port" name="port">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputEmail3" placeholder="local port" name="local_port">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputEmail3" placeholder="password" name="passwd">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-10">
+            <select class="form-control" name="method">
+              <option value="aes-128-cfb">aes-128-cfb</option>
+              <option value="aes-192-cfb">aes-192-cfb</option>
+              <option value="aes-256-cfb">aes-256-cfb</option>
+              <option value="bf-cfb">bf-cfb</option>
+              <option value="camellia-128-cfb">camellia-128-cfb</option>
+              <option value="camellia-192-cfb">camellia-192-cfb</option>
+              <option value="camellia-256-cfb">camellia-256-cfb</option>
+              <option value="cast5-cfb">cast5-cfb</option>
+              <option value="des-cfb">des-cfb</option>
+              <option value="idea-cfb">idea-cfb</option>
+              <option value="rc2-cfb">rc2-cfb</option>
+              <option value="rc4">rc4</option>
+              <option value="rc4-md5">rc4-md5</option>
+              <option value="seed-cfb">seed-cfb</option>
+            </select>
+          </div>
+        </div>
+        <div class="container">
+            <div class="center">
+                <button id="onServer" type="button" name="button" class="btn btn-info" style="width:150px">on</button>
+            </div>
+        </div>
+      </form>
+  </div>
+</body>
+
+</html>

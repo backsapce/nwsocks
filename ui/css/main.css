@@ -1,0 +1,21 @@
+body{
+    background: #4EB1BA;
+    color: #fff;
+}
+
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+
+.center{
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: center;
+}
+
+.warn{
+    border-color: rgb(227, 30, 30);
+}
