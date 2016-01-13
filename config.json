@@ -1,6 +1,8 @@
 {
-  "host": "0.0.0.0",
-  "port": "1080",
-  "local_port": "1080",
-  "passwd": "helloworld"
+  "host": "",
+  "port": "",
+  "local_port": "",
+  "passwd": "",
+  "method": "aes-256-cfb",
+  "timeout": "10000"
 }

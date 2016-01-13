@@ -29,7 +29,7 @@ var server = net.createServer(function(socket) {
 		debug('socket error', e);
 		clean();
 	});
-	socket.setTimeout(6000, function() {
+	socket.setTimeout(10000, function() {
 		debug('sockets timeout');
 		clean();
 	});

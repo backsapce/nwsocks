@@ -3,7 +3,7 @@ var fs = require('fs-extra');
 var config;
 var server;
 $(document).ready(function() {
-	config = fs.readJsonSync('./configg.json');
+	config = fs.readJsonSync('./config.json');
 	//render
 	$('form').find('input[name=ip]').val(config.host);
 	$('form').find('input[name=port]').val(config.port);
@@ -41,23 +41,80 @@ $(document).ready(function() {
 		};
 		fs.writeJSON('./config.json', config, function() {
 			//load server
-			if (!server){
+			if (!server) {
 				server = require('../index.js');
-            }
-            if(!server.isStart){
-                server.start();
-            }
+			}
+			if (!server.isStart) {
+				server.start();
+			}
 			server.on('listening', function() {
 				$('#onServer').addClass('btn-warning');
 				$('#onServer').html('off');
 			});
 		});
 	});
+	tray_init();
 });
+
+function tray_init() {
+	// Load native UI library
+	var gui = require('nw.gui');
+	var win = gui.Window.get();
+
+
+	// Create a tray icon
+	var tray = new gui.Tray({
+		// title: 'socks',
+		icon: 'ui//img/icon.png'
+	});
+
+	// Give it a menu
+	var menu = new gui.Menu();
+	let toggle = new gui.MenuItem({
+		type: 'checkbox',
+		label: 'proxy'
+	});
+	if(server && server.isStart){
+		toggle.checked = true;
+		toggle.lable = 'on'
+	}
+	toggle.click = function () {
+		$('#onServer').click();
+		if(server && server.isStart){
+			this.lable = 'on';
+		}else{
+			this.lable = 'off';
+		}
+	}
+	menu.append(toggle);
+	let showWinBtn = new gui.MenuItem({
+		type: 'normal',
+		label: 'show window'
+	});
+	showWinBtn.click = function () {
+		win.show();
+	}
+	menu.append(showWinBtn);
+	let exitBtn = new gui.MenuItem({
+		type: 'normal',
+		label: 'exit'
+	});
+	exitBtn.click = function () {
+		process.exit(0);
+	};
+	menu.append(exitBtn);
+	tray.menu = menu;
+
+
+	// overload close event
+	win.on('close', function() {
+		this.hide();
+	});
+}
 
 function stop() {
 	if (server) {
-        server.clean();
+		server.clean();
 	}
 	$('#onServer').removeClass('btn-warning');
 	$('#onServer').html('on');
