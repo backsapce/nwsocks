@@ -2,7 +2,7 @@
 var config = require('./config.json') || {};
 var debug = require('debug')('main');
 checkConfig(config);
-debug('index')
+debug('index');
 if (global) {
 	global.config = config;
 }

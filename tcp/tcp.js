@@ -3,6 +3,7 @@ var tcpStream = require('./tcpStream');
 var net = require('net');
 var Encryptor = require("../encrop/encrypt").Encryptor;
 var debug = require('debug')('tcp');
+var log = require('../utils/log');
 debug('tcp');
 var server = net.createServer(function(socket) {
 	let encryptor = new Encryptor(global.config.passwd, global.config.method)
@@ -16,8 +17,8 @@ var server = net.createServer(function(socket) {
 		debug('remote close');
 		this.destroy();
 	});
-	remote.on('error', function() {
-		debug('remote error');
+	remote.on('error', function(e) {
+		debug('remote error',e);
 		if (remote)
 			this.destroy();
 	});
@@ -50,6 +51,7 @@ server.start = function () {
 		port: Number(global.config.local_port)
 	}, function() {
 		debug('listen in', global.config.local_port);
+		log.push('listen in', global.config.local_port);
 	});
 	this.isStart = true;
 }

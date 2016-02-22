@@ -1,5 +1,6 @@
 'use strict';
 var fs = require('fs-extra');
+var log = require('../utils/log');
 var config;
 var server;
 $(document).ready(function() {
@@ -54,6 +55,7 @@ $(document).ready(function() {
 		});
 	});
 	tray_init();
+	init_log();
 });
 
 function tray_init() {
@@ -125,4 +127,21 @@ function ValidateIPaddress(ipaddress) {
 		return (true)
 	}
 	return (false)
+}
+
+function init_log() {
+	$('#log').click(function (e) {
+		$('#log-tab').removeClass('tab-hidden');
+		log.add_hook('log-tab',add_log);
+	});
+	$('.icon-x').click(function (e) {
+		$('#log-tab').addClass('tab-hidden');
+		log.remove_hook('log-tab');
+	});
+	/**
+	 * add log item
+	 */
+	function add_log(log) {
+		$('#log-list').prepend('<li>'+log+'</li>');
+	}
 }

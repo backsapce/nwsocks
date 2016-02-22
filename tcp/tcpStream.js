@@ -2,6 +2,7 @@
 var Transform = require('stream').Transform;
 var util = require('util');
 var debug = require('debug')('tcp');
+var log = require('../utils/log');
 var TCPStream = function (sockets,encryptor) {
     this.sockets = sockets;
 	this.encryptor = encryptor || new Encryptor(global.config.passwd, global.config.method);
@@ -59,6 +60,7 @@ TCPStream.prototype._transform = function(data, encoding, done) {
 			this.headerLength = 5 + this.addrLen + 2;
 		}
         debug('connect to ' + this.remoteAddr + ':'+this.remotePort);
+        log.push('connect to ' + this.remoteAddr + ':'+this.remotePort);
 		let addrToSendBuf = new Buffer(this.addrToSend, "binary");
 		addrToSendBuf = this.encryptor.encrypt(addrToSendBuf);
 		this.push(addrToSendBuf);

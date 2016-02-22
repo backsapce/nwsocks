@@ -11,3 +11,4 @@ for (let i = 0; i < 100000; i++) {
         pre = us;
     }
 }
+console.log(log._cache);
