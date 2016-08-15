@@ -1,6 +1,7 @@
 'use strict';
 var Transform = require('stream').Transform;
 var util = require('util');
+var utils = require('../utils/utils');
 var debug = require('debug')('tcp');
 var log = require('../utils/log');
 var TCPStream = function (sockets,encryptor) {
@@ -20,6 +21,7 @@ var TCPStream = function (sockets,encryptor) {
     Transform.call(this);
 }
 util.inherits(TCPStream, Transform);
+
 TCPStream.prototype._transform = function(data, encoding, done) {
     // +----+--------+
     // |VER | METHOD |
@@ -44,7 +46,7 @@ TCPStream.prototype._transform = function(data, encoding, done) {
 		}
 		this.addrToSend = data.slice(3, 4).toString("binary");
 		if (this.addrtype === 1) {
-			this.remoteAddr = utils.inetNtoa(data.slice(4, 8));
+			this.remoteAddr = utils.resolveAddr(data.slice(4, 8));
 			this.addrToSend += data.slice(4, 10).toString("binary");
 			this.remotePort = data.readUInt16BE(8);
 			this.headerLength = 10;
