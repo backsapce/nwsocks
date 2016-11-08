@@ -35,9 +35,9 @@ class LogQueue {
      * remove hook via id
      */
     remove_hook(id) {
-        this.hook.forEach(function (v,k) {
+        this.hook.forEach((v,k)=> {
             if(v.id == id){
-                this.hook[k].slice(k,1);
+                this.hook.slice(k,1);
             }
         });
     }

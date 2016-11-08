@@ -1,7 +1,7 @@
 {
-  "host": "128.22.342.64",
-  "port": "9183",
-  "local_port": "8080",
-  "passwd": "4321",
+  "host": "",
+  "port": "9191",
+  "local_port": "8082",
+  "passwd": "",
   "method": "aes-256-cfb"
 }

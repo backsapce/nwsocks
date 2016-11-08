@@ -4,7 +4,10 @@ var net = require('net');
 var Encryptor = require("../encrop/encrypt").Encryptor;
 var debug = require('debug')('tcp');
 var log = require('../utils/log');
+
+
 debug('tcp');
+
 var server = net.createServer(function(socket) {
 	let encryptor = new Encryptor(global.config.passwd, global.config.method)
 	let stream = new tcpStream(socket, encryptor);

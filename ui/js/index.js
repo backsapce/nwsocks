@@ -21,6 +21,7 @@ $(document).ready(function() {
 		var local_port = $('form').find('input[name=local_port]').val();
 		var passwd = $('form').find('input[name=passwd]').val();
 		var method = $('form').find('select').val();
+		console.log(ip);
 		if (!ValidateIPaddress(ip)) {
 			$('form').find('input[name=ip]').addClass('warn');
 			return;
@@ -54,7 +55,7 @@ $(document).ready(function() {
 			});
 		});
 	});
-	tray_init();
+	// tray_init();
 	init_log();
 });
 
@@ -123,7 +124,7 @@ function stop() {
 }
 
 function ValidateIPaddress(ipaddress) {
-	if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(ipaddress)) {
+	if (/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/.test(ipaddress)) {
 		return (true)
 	}
 	return (false)
