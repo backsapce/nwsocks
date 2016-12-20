@@ -1,6 +1,7 @@
 'use strict';
 var fs = require('fs-extra');
 var log = require('../utils/log');
+const {ipcRenderer} = require('electron')
 var config;
 var server;
 $(document).ready(function() {
@@ -56,9 +57,10 @@ $(document).ready(function() {
 		});
 	});
 	// tray_init();
-	init_log();
+	init_log()
+	registMsg()
 });
-
+//@deprecated
 function tray_init() {
 	// Load native UI library
 	var gui = require('nw.gui');
@@ -123,13 +125,19 @@ function stop() {
 	$('#onServer').html('on');
 }
 
+function registMsg() {
+	ipcRenderer.on('proxy', () => {
+		$('#onServer').click()
+	})
+}
+
 function ValidateIPaddress(ipaddress) {
 	if (/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/.test(ipaddress)) {
 		return (true)
 	}
 	return (false)
 }
-
+window.test = 'test'
 function init_log() {
 	$('#log').click(function (e) {
 		$('#log-tab').removeClass('tab-hidden');
