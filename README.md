@@ -4,6 +4,8 @@
 
 shadowsocks implement by node and nw.js
 
+-- the socks_nw now based on electron.but the build scripts had some problem need to solve.
+
 # run by cmd
 
 - fork this repo.

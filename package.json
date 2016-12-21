@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/electron-packager/cli.js . --platform=darwin --arch=x64",
+    "build": "./node_modules/electron-packager/cli.js . --platform=darwin --arch=x64 --icon=./ui/img/sunTemplate.png",
     "pack": "build --dir",
     "dist": "build"
   },
