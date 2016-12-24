@@ -5,21 +5,21 @@ let win
 let tray
 let close = false
 function createWindow() {
-  win = new BrowserWindow({width: 320, height: 400})
+  win = new BrowserWindow({ width: 320, height: 400 })
 
   win.loadURL(`file://${__dirname}/ui/index.html`)
 
   // Open the DevTools.
   // win.webContents.openDevTools()
 
-  win.on('closed', function() {
+  win.on('closed', function () {
     win = null
   })
   win.on('close', (e) => {
-      if(!close){
-          e.preventDefault();
-          this.hide();
-      }
+    if (!close) {
+      e.preventDefault();
+      this.hide()
+    }
   })
   createTray()
 }
@@ -30,23 +30,23 @@ function createTray() {
   const contextMenu = Menu.buildFromTemplate([
     {
       label: 'open',
-      click(){
-          win.show()
+      click() {
+        win.show()
       }
     }, {
       label: 'proxy',
       type: 'radio',
-      checked:'false',
-      click(){
-          win.webContents.send('proxy')
-          this.checked = false
+      checked: 'false',
+      click() {
+        win.webContents.send('proxy')
+        this.checked = false
       }
     }, {
       label: 'exit',
-      click(){
-          close = true
-          win.close()
-          win = null
+      click() {
+        close = true
+        win.close()
+        win = null
       }
     }
   ])
