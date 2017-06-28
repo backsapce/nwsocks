@@ -11,10 +11,7 @@ let tray
 let close = false
 
 function createWindow() {
-  win = new BrowserWindow({
-    width: 320,
-    height: 400
-  })
+  win = new BrowserWindow({ width: 320, height: 400 })
 
   win.loadURL(`file://${__dirname}/ui/index.html`)
 
