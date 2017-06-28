@@ -16,7 +16,7 @@ function createWindow() {
   win.loadURL(`file://${__dirname}/ui/index.html`)
 
   // Open the DevTools.
-  win.webContents.openDevTools()
+  // win.webContents.openDevTools()
 
   win.on('closed', function () {
     win = null
