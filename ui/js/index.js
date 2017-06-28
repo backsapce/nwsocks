@@ -1,11 +1,13 @@
 'use strict';
 var fs = require('fs-extra');
+const path = require('path');
 var log = require('../utils/log');
 const {ipcRenderer} = require('electron')
 var config;
 var server;
 $(document).ready(function() {
-	config = fs.readJsonSync('./config.json');
+	const config_path = path.resolve(__dirname,'../config.json');
+	config = fs.readJsonSync(config_path);
 	//render
 	$('form').find('input[name=ip]').val(config.host);
 	$('form').find('input[name=port]').val(config.port);
