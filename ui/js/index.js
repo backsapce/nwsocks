@@ -45,10 +45,15 @@ $(document).ready(function() {
 		fs.writeJSON('./config.json', config, function() {
 			//load server
 			if (!server) {
-				server = require('../index.js');
+				server = require('../bootstrap.js');
 			}
 			if (!server.isStart) {
-				server.start();
+				server.start((e) => {
+					if(e){
+						console.error(e);
+						return;
+					}
+				})
 			}
 			server.on('listening', function() {
 				$('#onServer').addClass('btn-warning');

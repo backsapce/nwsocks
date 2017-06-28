@@ -49,12 +49,16 @@ server.clean = function() {
 	this.close();
 	this.isStart = false;
 }
-server.start = function () {
+server.start = function (cb) {
 	this.listen({
 		port: Number(global.config.local_port)
-	}, function() {
+	}, function(e) {
+		if(e) {
+			return cb && cb(e)
+		}
 		debug('listen in', global.config.local_port);
 		log.push('listen in', global.config.local_port);
+		cb && cb();
 	});
 	this.isStart = true;
 }
