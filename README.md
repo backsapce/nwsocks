@@ -31,9 +31,11 @@ you must-define fileds below
 
 ```js
     {
-        "host":"128.129.111.63",
-        "port":"9143",
-        "passwd":"Huangyao1"
+        "host":"127.0.0.1",
+        "port":"8081",
+        "local_port":"8082",
+        "passwd":"YOU_PASSWORD",
+        "method": "aes-256-cfb"
     }
 ```
 
