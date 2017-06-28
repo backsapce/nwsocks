@@ -2,7 +2,7 @@
 var tcpStream = require('./tcpStream');
 var net = require('net');
 var Encryptor = require("../encrop/encrypt").Encryptor;
-var debug = require('debug')('tcp');
+var debug = require('debug')('socks:tcp');
 var log = require('../utils/log');
 
 

@@ -2,7 +2,7 @@
 var Transform = require('stream').Transform;
 var util = require('util');
 var utils = require('../utils/utils');
-var debug = require('debug')('tcp');
+var debug = require('debug')('socks:tcp');
 var log = require('../utils/log');
 var TCPStream = function (sockets,encryptor) {
     this.sockets = sockets;

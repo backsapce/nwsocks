@@ -1,6 +1,6 @@
 'use strict';
 var config = require('./config.json') || {};
-var debug = require('debug')('main');
+var debug = require('debug')('socks:main');
 var server = require('./tcp/tcp.js');
 
 function checkConfig(config) {

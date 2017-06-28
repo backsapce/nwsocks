@@ -1,7 +1,0 @@
-{
-  "host": "139.162.89.128",
-  "port": "9191",
-  "local_port": "8082",
-  "passwd": "Huangyao1",
-  "method": "aes-256-cfb"
-}

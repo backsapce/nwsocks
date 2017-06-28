@@ -1,0 +1,7 @@
+{
+  "host": "127.0.0.1",
+  "port": "8081",
+  "local_port": "8082",
+  "passwd": "PASSWD",
+  "method": "aes-256-cfb"
+}
