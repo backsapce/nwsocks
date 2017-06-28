@@ -5,7 +5,6 @@ const {ipcRenderer} = require('electron')
 var config;
 var server;
 $(document).ready(function() {
-	fs.ensureFileSync('./config.json')
 	config = fs.readJsonSync('./config.json');
 	//render
 	$('form').find('input[name=ip]').val(config.host);
