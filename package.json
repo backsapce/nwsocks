@@ -42,7 +42,7 @@
   "main": "main.js",
   "chromium-args": "",
   "devDependencies": {
-    "electron": "1.4.13",
+    "electron": "10.1.2",
     "electron-packager": "8.4.0"
   }
 }
